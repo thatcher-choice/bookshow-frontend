@@ -1,0 +1,61 @@
+<app-header></app-header>
+<div class="booking-form">
+    <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+        <div class="form-body">
+                    <div class="form-content">
+                        <div class="form-items">
+                            <h3>Booking Details</h3>
+                            <p>Fill in the data below.</p>
+                            <form class="requires-validation" novalidate>
+    
+                                <div class="col-md-12">
+                                   <input class="form-control" id="name" formControlName="name" type="text" name="name" placeholder="Full Name" required>
+                                   <div class="valid-feedback">Username field is valid!</div>
+                                   <div class="invalid-feedback">Username field cannot be blank!</div>
+                                </div>
+    
+                                <div class="col-md-12">
+                                    <input class="form-control" type="email" id="email" formControlName="email" name="email" placeholder="E-mail Address" required>
+                                     <div class="valid-feedback">Email field is valid!</div>
+                                     <div class="invalid-feedback">Email field cannot be blank!</div>
+                                </div>
+    
+                               <div class="col-md-12">
+                                    <input class="form-control" type="text" id="phone" formControlName="phone" id="phone" name="phone" placeholder="Phone Number" required>
+                                    <div class="valid-feedback">Phone field is valid!</div>
+                                    <div class="invalid-feedback">Phone field cannot be blank!</div>
+                               </div>
+                               <div class="col-md-12 mt-5">
+                                    <label for="customRange2" class="form-label">Number of Tickets (Max : 5)</label>
+                                    <input type="range" class="form-range" min="0" max="5" id="customRange2" formControlName="rangeControl">
+                                    <span style="margin-right:10px;color: white;">Tickets selected: {{ currentStep }}</span><span style="margin-right:10px;color: white;">&#x2022;</span> <span style="color:white">Available tickets : {{eventItem.availableSeats}}</span>
+                               </div>    
+                               <div class="col-md-12 mt-3">
+                                <label class="mb-3 mr-1" for="gender">Seat Location: </label>
+    
+                                <input type="radio" class="btn-check" formControlName="seatLocation" name="seatLocation" value="front" id="Front" autocomplete="off" required>
+                                <label class="btn btn-sm btn-outline-secondary"  style="margin: 0 5px;color: white;"  for="Front">Front</label>
+    
+                                <input type="radio" class="btn-check" formControlName="seatLocation" name="seatLocation" value="middle" id="Middle" autocomplete="off" required>
+                                <label class="btn btn-sm btn-outline-secondary" style="margin: 0 5px; color: white;" for="Middle">Middle</label>
+    
+                                <input type="radio" class="btn-check" formControlName="seatLocation" name="seatLocation" value="back" id="Back" autocomplete="off" required>
+                                <label class="btn btn-sm btn-outline-secondary" style="margin: 0 5px; color: white;" for="Back">Back</label>
+                                   <div class="valid-feedback mv-up">You selected a seat location!</div>
+                                    <div class="invalid-feedback mv-up">Please select a seat location!</div>
+                                </div>
+                               <div class="col-md-12">
+                                    <label class="form-label">Total Amount</label>
+                                    <input class="form-control" type="text" id="totalPrice" formControlName="totalPrice" id="totalPrice" name="totalPrice" placeholder="">
+                               </div>
+                                <div class="form-button mt-3" style="text-align:center ;">
+                                    <button id="submit" (click)="onSubmit()" style="width: 50%;font-weight: bold;" type="submit" class="btn btn-primary">Book Ticket</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+        </div>
+    </form>
+</div>
+
